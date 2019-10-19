@@ -9,7 +9,7 @@ router.get('/sayhello', (req, res) => {
   res.send('今天的天气不错')
 })
 router.post('/login', (req, res) => {
-  console.log(req)
+  console.log(req.body)
   res.send('sucess')
 })
 module.exports = router;
