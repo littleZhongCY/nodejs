@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose')
 
-mongoose.connect("mongodb://47.101.134.233/user", function (err) {
+mongoose.connect("mongodb://47.101.134.233:27017/user", function (err) {
   if (err) throw err
   console.log('数据库连接成功')
 })
