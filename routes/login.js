@@ -11,10 +11,10 @@ let helloSchema = new mongoose.Schema({
   name: String
 })
 let helloModel = mongoose.model('user', helloSchema, 'user')
-router.get('/', function (req, res) {
-  console.log(req.query.password)
+router.post('/', function (req, res) {
+  console.log(req.body.password)
   helloModel.find({
-    "user": req.query.user
+    "user": req.body.user
   }).exec((err, data) => {
     console.log(data)
     if (data.length == 0) {
@@ -24,11 +24,11 @@ router.get('/', function (req, res) {
       })
     } else {
       console.log(typeof data[0])
-      console.log(data[0]['user'])
+      console.log(data[0])
       console.log(data[0].password)
-      if (req.query.password == data[0].password) {
+      if (req.body.password == data[0].password) {
         res.send({
-          data: 0,
+          data: 0, 
           msg: '登陆成功'
         })
       } else {
