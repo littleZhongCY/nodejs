@@ -24,6 +24,9 @@ router.get('/', function (req, res) {
       })
     } else {
       console.log(typeof data[0])
+	   for(let i in data[0]) {
+        console.log(i)
+      }
       console.log(data[0]['user'])
       console.log(data[0].password)
       if (req.query.password == data[0].password) {
