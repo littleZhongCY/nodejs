@@ -25,8 +25,8 @@ router.post('/', function (req, res) {
     } else {
       console.log(typeof data[0])
       console.log(data[0])
-      console.log(data[0][0].password)
-      if (req.body.password == data[0][0].password) {
+      console.log(data[0].password)
+      if (req.body.password == data[0].password) {
         res.send({
           data: 0, 
           msg: '登陆成功'
