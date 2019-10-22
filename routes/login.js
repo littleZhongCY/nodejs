@@ -24,14 +24,7 @@ router.post('/', function (req, res) {
       })
     } else {
       console.log(typeof data[0])
-<<<<<<< HEAD
-	   for(let i in data[0]) {
-        console.log(i)
-      }
-      console.log(data[0]['user'])
-=======
       console.log(data[0])
->>>>>>> 34c2dca6f272573b17a0e36c71efab8504956670
       console.log(data[0].password)
       if (req.body.password == data[0].password) {
         res.send({
