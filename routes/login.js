@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose')
 
-mongoose.connect("mongodb://47.101.134.233:27017/user",{ useNewUrlParser: true, useUnifiedTopology:true },function (err) {
+mongoose.connect("mongodb://47.101.134.233:27017/user", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, function (err) {
   if (err) throw err
   console.log('数据库连接成功')
 })
@@ -12,11 +15,11 @@ let helloSchema = new mongoose.Schema({
 })
 let helloModel = mongoose.model('user', helloSchema, 'user')
 router.post('/', function (req, res) {
+  console.log(req.ip)
   console.log(req.body.password)
   helloModel.find({
     "user": req.body.user
   }).exec((err, data) => {
-    console.log(data)
     if (data.length == 0) {
       res.send({
         data: -1,
@@ -27,7 +30,7 @@ router.post('/', function (req, res) {
       newData = JSON.parse(newData)
       if (req.body.password == newData.password) {
         res.send({
-          data: 0, 
+          data: 0,
           msg: '登陆成功'
         })
       } else {
